@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Nearby Finder | Discover Your City</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="brand">⌖ Nearby<span>Finder</span></a>
+    <a href="#explore" class="nav-link">Explore places ↗</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">DISCOVER YOUR NEIGHBOURHOOD</p>
+      <h1>Find places<br><span>worth discovering.</span></h1>
+      <p class="hero-description">
+        Explore hospitals, libraries, cafés, parks and more around your city.
+      </p>
+      <a class="primary-button" href="#explore">Start exploring ↓</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">⌖</div>
+  </section>
+
+  <main class="container" id="explore">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">YOUR CITY, YOUR WAY</p>
+        <h2>Where are you going?</h2>
+      </div>
+      <span class="data-badge">● Open map data</span>
+    </div>
+
+    <form id="searchForm" class="search-panel">
+      <label for="location">Search location</label>
+      <input
+        id="location"
+        name="location"
+        type="text"
+        placeholder="e.g. Bengaluru, India"
+        minlength="2"
+        maxlength="120"
+        required
+      >
+
+      <div class="fields">
+        <div>
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="hospital">Hospitals</option>
+            <option value="library">Libraries</option>
+            <option value="restaurant">Restaurants</option>
+            <option value="cafe">Cafés</option>
+            <option value="atm">ATMs</option>
+            <option value="pharmacy">Pharmacies</option>
+            <option value="park">Parks</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="radius">Search radius</label>
+          <select id="radius">
+            <option value="1000">1 km</option>
+            <option value="3000" selected>3 km</option>
+            <option value="5000">5 km</option>
+            <option value="10000">10 km</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sort">Sort by</label>
+          <select id="sort">
+            <option value="distance">Nearest first</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="searchButton" type="submit">Find places ↗</button>
+      <p id="status" role="status" aria-live="polite">
+        Enter a location to discover nearby places.
+      </p>
+    </form>
+
+    <div class="section-heading results-heading">
+      <div>
+        <p class="eyebrow">YOUR DISCOVERIES</p>
+        <h2>Places to explore</h2>
+      </div>
+      <span id="resultCount" class="data-badge">0 places</span>
+    </div>
+
+    <div class="layout">
+      <section id="results" class="results" aria-live="polite">
+        <div class="empty-state">
+          <div class="empty-icon">⌖</div>
+          <h3>Your discoveries start here</h3>
+          <p>Search a location to see matching places.</p>
+        </div>
+      </section>
+
+      <section class="map-panel">
+        <div class="map-heading">
+          <h3>Explore the map</h3>
+          <span>Interactive</span>
+        </div>
+        <div id="map" aria-label="Map showing nearby places"></div>
+        <p class="attribution">
+          Map data © OpenStreetMap contributors
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <a href="#" class="brand footer-brand">⌖ Nearby<span>Finder</span></a>
+    <p>A student project for better place discovery.</p>
+  </footer>
+</body>
+</html>
